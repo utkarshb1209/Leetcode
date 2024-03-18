@@ -1,21 +1,20 @@
 class Solution {
-public:
-    // 1,6 2,8,  7,12 10,16
-    int findMinArrowShots(vector<vector<int>>& v) {
-        int n=v.size();
-        sort(v.begin(),v.end());
-        int i,c=1;
-        vector<int> v1(2);
-        v1[0]=v[0][1];
-        for(i=1;i<n;i++){
-            if(v[i][0]<=v1[0]){
-                v1[0]=min(v[i][1],v1[0]);
+    public int findMinArrowShots(int[][] v) {
+        int n=v.length;
+        Arrays.sort(v, (a, b) -> Integer.compare(a[1], b[1]));
+        int x=v[0][1];
+        int  ans=1;
+        for(int i=1;i<n;i++){
+            if(v[i][0]<=x){
+                x=Math.min(x,v[i][1]);
             }
             else{
-                c++;
-                v1[0]=v[i][1];
+                // System.out.println(v[i][0]);
+                x=v[i][1];
+                
+                ans++;
             }
         }
-        return c;
+        return ans;
     }
-};
+}
