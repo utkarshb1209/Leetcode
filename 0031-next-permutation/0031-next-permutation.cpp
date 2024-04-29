@@ -11,17 +11,18 @@ public:
         }
         if(i<0) {
             reverse(v.begin(),v.end());
-            return ;
+            return;
         }
-        int j=n-1;
-        while(j>i){
-            if(v[j]>v[i]){
-                break;
+        else{
+            int j=n-1;
+            while(j>i){
+                if(v[j]>v[i]){
+                    swap(v[i],v[j]);
+                    break;
+                }
+                j--;
             }
-            j--;
+            reverse(v.begin()+i+1,v.end());
         }
-        swap(v[i],v[j]);
-        reverse(v.begin()+i+1,v.end());
-        return ;
     }
 };
