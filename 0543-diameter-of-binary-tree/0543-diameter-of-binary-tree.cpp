@@ -11,17 +11,16 @@
  */
 class Solution {
 public:
-    int mx=0,ans=0;
-    int ch(TreeNode* &r){
+    int ch(TreeNode* r,int &ans){
         if(!r) return 0;
-        int x=ch(r->left);
-        int y=ch(r->right);
-        ans=x+y;
-        mx=max(mx,ans);
+        int x=ch(r->left,ans);
+        int y=ch(r->right,ans);
+        ans=max(ans,x+y);
         return 1+max(x,y);
     }
     int diameterOfBinaryTree(TreeNode* r) {
-        ch(r);
-        return mx;
+        int ans=0;
+        ch(r,ans);
+        return ans;
     }
 };
