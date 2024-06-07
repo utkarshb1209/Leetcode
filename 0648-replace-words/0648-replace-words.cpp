@@ -6,7 +6,8 @@ public:
         string ans="",s="";
         for(auto p:d) {
             string x=p;
-            // mx=max(mx,x.size());
+            int z=p.size();
+            mx=max(mx,z);
             st.insert(p);
         }
         int f=1;
@@ -20,7 +21,7 @@ public:
             else{
                 if(f==1){
                 s+=v[i];
-                if(st.count(s)){
+                if(s.size()<=mx && st.count(s)){
                     f=0;
                 }
                 }
